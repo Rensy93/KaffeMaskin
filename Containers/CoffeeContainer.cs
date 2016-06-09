@@ -1,0 +1,37 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace Barista3000
+{
+    /// <summary>
+    /// Coffee container
+    /// </summary>
+   public class CoffeeContainer : Container
+    {
+        /// <summary>
+        /// Initiates container
+        /// </summary>
+        /// <param name="level">Init level</param>
+        public CoffeeContainer(int level)
+        {
+            Level = level;
+        }
+
+        /// <summary>
+        /// Get content from container
+        /// </summary>
+        public override void GetContent()
+        {
+            if (HasContent())
+            {
+                Level -= 1;
+            }
+            else
+            {
+                throw new EmptyContainerException("Not enough coffee.");
+            }
+        }
+    }
+}
